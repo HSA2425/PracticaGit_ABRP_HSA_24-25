@@ -26,7 +26,7 @@ namespace ejercicioTelegrama_ABRP_HSA_24_25
             //Leo el telegrama
             textoTelegrama = txtTelegrama.Text;
             // telegrama urgente?
-            if (chkUrgente.Checked)     //ABRP2425
+            if (rBtnUrgente.Checked)     //HSA 24-25//ABRP2425
             {
                 tipoTelegrama = 'u';
             }
