@@ -20,18 +20,21 @@ namespace ejercicioTelegrama_ABRP_HSA_24_25
         private void button1_Click(object sender, EventArgs e)
         {
             string textoTelegrama;
-            char tipoTelegrama = ' ';
+            char tipoTelegrama = 'o';       //ABRP2425
             int numPalabras = 0;
-            double coste;
-            //Leo el telegrama 
+            double coste = 0;
+            //Leo el telegrama
             textoTelegrama = txtTelegrama.Text;
             // telegrama urgente?
-            if (chkUrgente.Checked)
+            if (chkUrgente.Checked)     //ABRP2425
             {
                 tipoTelegrama = 'u';
             }
-            //Obtengo el número de palabras que forma el telegrama 
-            numPalabras = textoTelegrama.Length;
+
+            //Obtengo el número de palabras que forma el telegrama
+            string[] palabras = textoTelegrama.Split(' '); //separa las palabras y las introduce en una estructura
+            numPalabras = palabras.Length; //Obtiene la longitud de la estructura, que será el número de palabras.
+
             //Si el telegrama es ordinario
             if (tipoTelegrama == 'o')
             {
@@ -41,7 +44,7 @@ namespace ejercicioTelegrama_ABRP_HSA_24_25
                 }
                 else
                 {
-                    coste = 0.5 * numPalabras;
+                    coste = 2.5 + 0.5 * (numPalabras - 10); //ABRP2425
                 }
             }
             else
@@ -51,7 +54,7 @@ namespace ejercicioTelegrama_ABRP_HSA_24_25
                 {
                     if (numPalabras <= 10)
                     {
-                        coste = 5;
+                        coste = 5;      //ABRP2425
                     }
                     else
                     {
@@ -64,7 +67,6 @@ namespace ejercicioTelegrama_ABRP_HSA_24_25
                 }
             }
             txtPrecio.Text = coste.ToString() + " euros";
-
         }
     }
 }
